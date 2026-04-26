@@ -1,0 +1,19 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"targets": {
+					"node": "18"
+				},
+				"modules": "commonjs"
+			}
+		],
+		[
+			"@babel/preset-react",
+			{
+				"runtime": "automatic"
+			}
+		]
+	]
+}

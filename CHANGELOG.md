@@ -1,7 +1,7 @@
 # Changelog
 
 ## [NEXT_VERSION] - [UNRELEASED]
-* BUG: Example fix description.
+* BUG: Maybe fix sass.
 
 ## [0.2.2] - 2026-04-26
 * BUG: Webpack - user modern API in sass loader.

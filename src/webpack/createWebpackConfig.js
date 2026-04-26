@@ -1,5 +1,6 @@
 const webpack = require( 'webpack' )
 const { resolve } = require( 'path' )
+const sass = require( 'sass' )
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' )
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' )
@@ -9,6 +10,10 @@ const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extrac
 const postcssPlugins = require( '@wordpress/postcss-plugins-preset' )
 
 const CSSAssetPlugin = require( './CSSAssetPlugin' )
+
+const sassImporters = typeof sass.NodePackageImporter === 'function'
+	? [ new sass.NodePackageImporter() ]
+	: []
 
 const tryRequire = ( id ) => {
 	try {
@@ -130,9 +135,12 @@ const createWebpackConfig = ( options = {} ) => {
 				{
 					loader: 'sass-loader',
 					options: {
-						implementation: require( 'sass' ),
+						implementation: sass,
 						sourceMap: true,
 						api: 'modern',
+						sassOptions: {
+							importers: sassImporters
+						}
 					}
 				},
 				{

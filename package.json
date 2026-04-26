@@ -21,6 +21,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./webpack": "./dist/webpack/createWebpackConfig.js",
+    "./webpack/css-asset-plugin": "./dist/webpack/CSSAssetPlugin.js",
     "./postcss": "./dist/webpack/postcss.config.js",
     "./settings": "./dist/settings/index.js",
     "./settings/styles": "./dist/settings/styles/_settings-page.scss",

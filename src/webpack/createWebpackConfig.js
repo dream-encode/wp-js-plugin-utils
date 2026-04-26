@@ -8,6 +8,8 @@ const TerserPlugin = require( 'terser-webpack-plugin' )
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' )
 const postcssPlugins = require( '@wordpress/postcss-plugins-preset' )
 
+const CSSAssetPlugin = require( './CSSAssetPlugin' )
+
 const tryRequire = ( id ) => {
 	try {
 		return require( id )
@@ -79,7 +81,8 @@ const createWebpackConfig = ( options = {} ) => {
 			filename: 'css/[name]-rtl.css'
 		} ),
 		new RemoveEmptyScriptsPlugin(),
-		new DependencyExtractionWebpackPlugin()
+		new DependencyExtractionWebpackPlugin(),
+		new CSSAssetPlugin()
 	]
 
 	if ( sentry ) {

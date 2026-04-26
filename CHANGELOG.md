@@ -1,5 +1,8 @@
 # Changelog
 
+## [NEXT_VERSION] - [UNRELEASED]
+* BUG: Example fix description.
+
 ## [0.2.1] - 2026-04-26
 * BUG: Add lock file.
 

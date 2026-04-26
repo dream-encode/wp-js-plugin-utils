@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.2.0] - 2026-04-26
 * ENH: Webpack - Add `createWebpackConfig` factory abstracting the standard WP plugin webpack config.
 * ENH: Webpack - Add default `postcss.config.js` exporting the `@wordpress/postcss-plugins-preset` plugins.
 * ENH: Settings - Add `createUseSettings` factory hook for the WP core REST settings endpoint.

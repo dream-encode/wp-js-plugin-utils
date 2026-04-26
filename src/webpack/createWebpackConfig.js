@@ -11,10 +11,6 @@ const postcssPlugins = require( '@wordpress/postcss-plugins-preset' )
 
 const CSSAssetPlugin = require( './CSSAssetPlugin' )
 
-const sassImporters = typeof sass.NodePackageImporter === 'function'
-	? [ new sass.NodePackageImporter() ]
-	: []
-
 const tryRequire = ( id ) => {
 	try {
 		return require( id )
@@ -140,7 +136,6 @@ const createWebpackConfig = ( options = {} ) => {
 						api: 'modern',
 						webpackImporter: false,
 						sassOptions: {
-							importers: sassImporters,
 							loadPaths: [ resolve( context, 'node_modules' ) ]
 						}
 					}

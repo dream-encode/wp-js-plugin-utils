@@ -1,1 +1,11 @@
 .augment
+node_modules/
+dist/
+.DS_Store
+*.log
+yarn-error.log
+npm-debug.log*
+.env
+.env.local
+.idea/
+.vscode/

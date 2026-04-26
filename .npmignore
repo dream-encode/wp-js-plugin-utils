@@ -1,0 +1,13 @@
+.augment
+.babelrc
+.gitignore
+.vscode/
+.idea/
+node_modules/
+src/
+!src/settings/styles/
+yarn.lock
+package-lock.json
+*.log
+.env
+.env.local

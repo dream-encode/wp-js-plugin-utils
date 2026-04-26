@@ -10,7 +10,7 @@
     "./webpack": "./dist/webpack/createWebpackConfig.js",
     "./postcss": "./dist/webpack/postcss.config.js",
     "./settings": "./dist/settings/index.js",
-    "./settings/styles": "./src/settings/styles/_settings-page.scss",
+    "./settings/styles": "./dist/settings/styles/_settings-page.scss",
     "./data-migrations": "./dist/data-migrations/index.js",
     "./components": "./dist/components/index.js",
     "./hooks": "./dist/hooks/index.js",
@@ -19,8 +19,7 @@
     "./constants": "./dist/utils/constants.js"
   },
   "files": [
-    "dist/",
-    "src/settings/styles/"
+    "dist/"
   ],
   "scripts": {
     "build": "babel src --out-dir dist --extensions \".js,.jsx\" --copy-files --no-copy-ignored",

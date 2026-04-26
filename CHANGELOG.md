@@ -1,7 +1,7 @@
 # Changelog
 
 ## [NEXT_VERSION] - [UNRELEASED]
-* BUG: Example fix description.
+* BUG: Webpack - user modern API in sass loader.
 
 ## [0.2.1] - 2026-04-26
 * BUG: Add lock file.

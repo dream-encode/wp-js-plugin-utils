@@ -1,6 +1,6 @@
 {
   "name": "@dream-encode/wp-js-plugin-utils",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Common JS functionality used by custom WP plugins.",
   "keywords": [
     "wordpress",

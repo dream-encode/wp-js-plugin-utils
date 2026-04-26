@@ -131,7 +131,8 @@ const createWebpackConfig = ( options = {} ) => {
 					loader: 'sass-loader',
 					options: {
 						implementation: require( 'sass' ),
-						sourceMap: true
+						sourceMap: true,
+						api: 'modern',
 					}
 				},
 				{

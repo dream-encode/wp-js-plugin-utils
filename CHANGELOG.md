@@ -1,5 +1,8 @@
 # Changelog
 
+## [NEXT_VERSION] - [UNRELEASED]
+* BUG: Add lock file.
+
 ## [0.2.0] - 2026-04-26
 * ENH: Webpack - Add `createWebpackConfig` factory abstracting the standard WP plugin webpack config.
 * ENH: Webpack - Add default `postcss.config.js` exporting the `@wordpress/postcss-plugins-preset` plugins.

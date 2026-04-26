@@ -138,8 +138,10 @@ const createWebpackConfig = ( options = {} ) => {
 						implementation: sass,
 						sourceMap: true,
 						api: 'modern',
+						webpackImporter: false,
 						sassOptions: {
-							importers: sassImporters
+							importers: sassImporters,
+							loadPaths: [ resolve( context, 'node_modules' ) ]
 						}
 					}
 				},

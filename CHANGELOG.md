@@ -13,3 +13,6 @@
 * ENH: Constants - Add shared constants (`LOG_LEVELS`, `MIGRATION_ACTION_SCHEDULER_QUEUE_MODE`, `MIGRATION_RESULTS_PER_PAGE`, …).
 * ENH: Data Migrations - Add `registerMigratorSettings`, `registerResultsRenderer`, and `registerMigratorRenderer` wrappers around the `window.maxMarineDataMigrations` registry, plus a `registerOnReady` batch helper.
 * TSK: Add Babel-based build (`yarn build` -> `dist/`) and subpath exports map in `package.json`.
+
+## [0.1.0] - 2026-04-46
+* Initial release.

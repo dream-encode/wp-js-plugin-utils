@@ -1,16 +1,6 @@
+import { Button, __experimentalHStack as HStack, Placeholder, Spinner, __experimentalText as Text } from '@wordpress/components'
+import { Fragment } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
-
-import {
-	Button,
-	Placeholder,
-	Spinner,
-	__experimentalHStack as HStack,
-	__experimentalText as Text
-} from '@wordpress/components'
-
-import {
-	Fragment
-} from '@wordpress/element'
 
 import Notices from '../components/Notices'
 

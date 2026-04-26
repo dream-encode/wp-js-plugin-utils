@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.2.4] - 2026-04-26
 * BUG: Webpack - Fix sass imports.
 
 ## [0.2.3] - 2026-04-26

@@ -1,4 +1,3 @@
-export * as api from './api'
 export * as components from './components'
 export * as dataMigrations from './data-migrations'
 export * as hooks from './hooks'

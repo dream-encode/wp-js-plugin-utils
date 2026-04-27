@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.2.6] - 2026-04-27
+* BUG: Remove API exports, as the fetchOptions is now dead code.
+
 ## [0.2.5] - 2026-04-26
 * BUG: Webpack - Another fix.
 

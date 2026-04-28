@@ -28,6 +28,8 @@
     "./data-migrations": "./dist/data-migrations/index.js",
     "./components": "./dist/components/index.js",
     "./components/notifications-drawer/styles": "./dist/components/NotificationsDrawer/styles/_notifications-drawer.scss",
+    "./components/process/styles": "./dist/components/Process/styles/_process.scss",
+    "./components/progress/styles": "./dist/components/Progress/styles/_progress.scss",
     "./hooks": "./dist/hooks/index.js",
     "./api": "./dist/api/index.js",
     "./utils": "./dist/utils/index.js",

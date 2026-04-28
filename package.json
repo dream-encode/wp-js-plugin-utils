@@ -27,6 +27,7 @@
     "./settings/styles": "./dist/settings/styles/_settings-page.scss",
     "./data-migrations": "./dist/data-migrations/index.js",
     "./components": "./dist/components/index.js",
+    "./components/notifications-drawer/styles": "./dist/components/NotificationsDrawer/styles/_notifications-drawer.scss",
     "./hooks": "./dist/hooks/index.js",
     "./api": "./dist/api/index.js",
     "./utils": "./dist/utils/index.js",

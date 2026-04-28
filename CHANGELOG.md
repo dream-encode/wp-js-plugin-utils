@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.3.0] - 2026-04-28
 * FEA: Notifications Drawer.
 
 ## [0.2.6] - 2026-04-27

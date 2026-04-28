@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.0] - 2026-04-28
+* FEA: Process component.
+* FEA: Progress component.
+
 ## [0.3.0] - 2026-04-28
 * FEA: Notifications Drawer.
 

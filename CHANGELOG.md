@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.3.0] - 2026-04-28
+* FEA: Notifications Drawer.
+
 ## [0.2.6] - 2026-04-27
 * BUG: Remove API exports, as the fetchOptions is now dead code.
 

@@ -1,0 +1,186 @@
+/*
+ * Generic styling for the wp-plugin-utils NotificationsDrawer component.
+ *
+ * Apply to the drawer's id/class selector and pass the same item class name
+ * that you supply via the `itemClassName` prop on the React component:
+ *
+ *     #my-plugin-messages {
+ *         @include de-wp-plugin-utils-notifications-drawer('my-plugin-alert');
+ *     }
+ */
+
+@keyframes de-wp-plugin-utils-notifications-drawer-pulse {
+	0% {
+		transform: scale(1);
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+	}
+	50% {
+		transform: scale(1.1);
+		box-shadow: -2px 0 15px rgba(202, 74, 31, 0.4);
+	}
+	100% {
+		transform: scale(1);
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+	}
+}
+
+@mixin de-wp-plugin-utils-notifications-drawer($item-class: 'notification-item') {
+	position: fixed;
+	bottom: 2rem;
+	right: -400px;
+	width: 400px;
+	transition: right 0.3s ease-in-out;
+	z-index: 99999;
+
+	.messages-icon {
+		position: absolute;
+		bottom: 0;
+		left: -50px;
+		width: 50px;
+		height: 50px;
+		background-color: #fff;
+		border-radius: 4px 0 0 4px;
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		&.new-message {
+			animation: de-wp-plugin-utils-notifications-drawer-pulse 1s;
+		}
+
+		.dashicons {
+			font-size: 24px;
+			color: #444;
+		}
+
+		.messages-count {
+			position: absolute;
+			top: -7px;
+			left: -10px;
+			min-width: 18px;
+			height: 18px;
+			padding: 0 4px;
+			border-radius: 9px;
+			background-color: #ca4a1f;
+			color: #fff;
+			font-size: 11px;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: transform 0.3s ease, opacity 0.3s ease;
+		}
+	}
+
+	&.expanded {
+		right: 0;
+
+		.messages-icon {
+			box-shadow: none;
+		}
+	}
+
+	.messages-container {
+		background-color: #fff;
+		border-radius: 4px 0 0 4px;
+		box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+		max-height: 80vh;
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+
+		&.dismissing-all {
+			opacity: 0.5;
+			pointer-events: none;
+			transition: opacity 0.5s ease-in-out;
+
+			.#{$item-class} {
+				opacity: 0.5;
+				transform: scale(0.98);
+				transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+			}
+		}
+	}
+
+	.dismiss-all {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: end;
+		margin-bottom: 6px;
+
+		button {
+			color: #444444;
+			background-color: #ffffff;
+			box-shadow: none;
+			font-weight: 500;
+
+			&:hover {
+				border-color: #000;
+			}
+		}
+	}
+
+	.#{$item-class} {
+		padding: 3px 6px;
+		box-sizing: border-box;
+		margin-bottom: 8px;
+		transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		max-height: 200px;
+		overflow: hidden;
+		transform-origin: top;
+		opacity: 1;
+
+		&.dismissing {
+			opacity: 0;
+			max-height: 0;
+			margin-bottom: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			transform: translateY(-10px) scale(0.95);
+			transition:
+				opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+				max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+				margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+				padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+				transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.dashicons-warning {
+			color: #cc1818;
+		}
+
+		.message-action-button {
+			background-color: #cc1818;
+			color: #fff;
+			border: #cc1818;
+			box-shadow: none;
+		}
+
+		p {
+			color: #000000;
+		}
+
+		&.is-dismissible {
+			padding-right: 0;
+
+			.components-button.has-icon {
+				padding: 0;
+			}
+
+			.components-notice__dismiss {
+				svg {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+
+	.components-notice__action.components-button.is-link {
+		margin-left: 30px;
+	}
+}

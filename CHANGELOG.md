@@ -1,7 +1,8 @@
 # Changelog
 
 ## [NEXT_VERSION] - [UNRELEASED]
-* BUG: Example fix description.
+* FEA: Process component.
+* FEA: Progress component.
 
 ## [0.3.0] - 2026-04-28
 * FEA: Notifications Drawer.

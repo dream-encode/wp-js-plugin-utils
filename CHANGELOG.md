@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6.2] - 2026-09-01
+* ENH: Settings - The rail page now says what it is doing while settings load. `/wp/v2/settings` returns every registered option on the site, so on a large install that request can take several seconds, and until now the pane rendered an empty `Placeholder` holding nothing but a spinner, which reads as a broken page rather than a loading one. The pane now shows a spinner beside "Loading settings…" instead.
+* TWK: Settings - The section rail now sits 1rem in from the left edge of the screen rather than flush against the admin menu.
+
 ## [0.6.1] - 2026-09-01
 * ENH: Settings - The rail stylesheet now carries the layout for an actions section: `de-settings__action` rows with a description on the left and the button on the right, sized and separated the same way in every plugin that has one. Several plugins had each rolled their own copy of this nested inside the stacked layout, where it no longer matched anything.
 

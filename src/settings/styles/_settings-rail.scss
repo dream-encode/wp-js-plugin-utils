@@ -298,6 +298,46 @@
 		gap: 20px;
 	}
 
+	.de-settings__action {
+		display: flex;
+		align-items: flex-start;
+		gap: 24px;
+		padding: 16px 0;
+		border-bottom: 1px solid #f0f0f1;
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+
+	.de-settings__action-description {
+		flex: 1;
+		min-width: 0;
+
+		strong {
+			display: block;
+			font-size: 13px;
+			color: var( --de-settings-ink );
+		}
+
+		p {
+			margin: 4px 0 0;
+			font-size: 12.5px;
+			line-height: 1.5;
+			color: var( --de-settings-ink-faint );
+			max-width: 78ch;
+		}
+	}
+
+	.de-settings__action-button {
+		flex: none;
+	}
+
 	.de-settings__field {
 		max-width: 640px;
 

@@ -1,4 +1,4 @@
-import { Button, Placeholder, Spinner } from '@wordpress/components'
+import { Button, Spinner } from '@wordpress/components'
 import { Fragment, useEffect } from '@wordpress/element'
 import { __, _n, sprintf } from '@wordpress/i18n'
 
@@ -205,9 +205,10 @@ const RailSettingsPage = ( {
 					tabIndex={ 0 }
 				>
 					{ ! settingsLoaded ? (
-						<Placeholder>
+						<div className="de-settings__loading">
 							<Spinner />
-						</Placeholder>
+							<p>{ __( 'Loading settings…', textDomain ) }</p>
+						</div>
 					) : (
 						<Fragment>
 							<Notices />

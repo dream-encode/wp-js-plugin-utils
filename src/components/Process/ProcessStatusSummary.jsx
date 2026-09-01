@@ -1,27 +1,10 @@
+import { __experimentalText as Text } from '@wordpress/components'
+import { Fragment, useEffect, useMemo, useRef, useState } from '@wordpress/element'
 import { __, sprintf } from '@wordpress/i18n'
 
-import {
-	__experimentalText as Text
-} from '@wordpress/components'
-
-import {
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-	Fragment
-} from '@wordpress/element'
-
-import {
-	addSecondsToCurrentTime,
-	calculateEstimatedTimeRemainingSimple,
-	calculateEstimatedTimeRemainingUsingEMA,
-	secondsToDhmsShort
-} from '../../utils/time'
-
-import { convertTimestampToFriendlyTime } from '../../utils/dates'
-
 import useValueChangeEffect from '../../hooks/useValueChangeEffect'
+import { convertTimestampToFriendlyTime } from '../../utils/dates'
+import { addSecondsToCurrentTime, calculateEstimatedTimeRemainingSimple, calculateEstimatedTimeRemainingUsingEMA, secondsToDhmsShort } from '../../utils/time'
 
 /**
  * Status summary row for a long-running process.
@@ -82,13 +65,15 @@ const ProcessStatusSummary = ( {
 	} ), [ textDomain, labels ] )
 
 	const percentValue = String( parseFloat( percentComplete ?? 0 ).toFixed( 1 ) )
+
 	const { displayValue: displayPercent, elementRef: percentRef } = useValueChangeEffect(
 		percentValue,
 		animatePercent ? 'fast' : 'default'
 	)
 
 	const [ intervalSecondsRemaining, setIntervalSecondsRemaining ] = useState( false )
-	const [ estimatedCompletedTime, setEstimatedCompletedTime ] = useState( false )
+	const [ estimatedCompletedTime, setEstimatedCompletedTime ]     = useState( false )
+
 	const intervalRef = useRef( null )
 
 	const computedSecondsRemaining = useMemo( () => {
@@ -128,6 +113,7 @@ const ProcessStatusSummary = ( {
 	useEffect( () => {
 		if ( intervalRef.current ) {
 			clearInterval( intervalRef.current )
+
 			intervalRef.current = null
 		}
 
@@ -140,6 +126,7 @@ const ProcessStatusSummary = ( {
 		return () => {
 			if ( intervalRef.current ) {
 				clearInterval( intervalRef.current )
+
 				intervalRef.current = null
 			}
 		}

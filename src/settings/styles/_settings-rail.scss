@@ -1,0 +1,421 @@
+/*
+ * Styling for the RailSettingsPage shell.
+ *
+ * A settings page needs both mixins:
+ *
+ *     @use "@dream-encode/wp-js-plugin-utils/dist/settings/styles/settings-rail" as rail;
+ *
+ *     @include rail.de-wp-plugin-utils-settings-rail-page;
+ *
+ *     #my-plugin-settings {
+ *         @include rail.de-wp-plugin-utils-settings-rail;
+ *     }
+ */
+
+/*
+ * Page level resets, included at the top level rather than inside the mount point.
+ *
+ * The rail runs the full width of the screen, which means clearing the left padding
+ * WordPress puts on the content column for its own admin menu.
+ */
+@mixin de-wp-plugin-utils-settings-rail-page {
+	#wpcontent {
+		padding-left: 0;
+	}
+
+	.auto-fold #wpcontent {
+		padding-left: 0;
+	}
+
+	#wpbody-content {
+		padding-bottom: 0;
+	}
+}
+
+@mixin de-wp-plugin-utils-settings-rail {
+	--de-settings-rail-width: 232px;
+	--de-settings-header-height: 61px;
+	--de-settings-admin-bar: 32px;
+	--de-settings-surface: #ffffff;
+	--de-settings-ground: #f0f0f1;
+	--de-settings-line: #dcdcde;
+	--de-settings-ink: #1d2327;
+	--de-settings-ink-soft: #3c434a;
+	--de-settings-ink-faint: #646970;
+	--de-settings-blue: #2271b1;
+	--de-settings-blue-dark: #0a4b78;
+	--de-settings-blue-wash: #f0f6fc;
+	--de-settings-amber: #bd8600;
+	--de-settings-green: #00733f;
+
+	box-sizing: border-box;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.de-settings {
+		display: flex;
+		flex-direction: column;
+		min-height: calc( 100vh - var( --de-settings-admin-bar ) );
+		background: var( --de-settings-ground );
+	}
+
+	.de-settings__header {
+		position: sticky;
+		top: var( --de-settings-admin-bar );
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		min-height: var( --de-settings-header-height );
+		padding: 10px 24px;
+		background: var( --de-settings-surface );
+		border-bottom: 1px solid var( --de-settings-line );
+		box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.04 );
+	}
+
+	.de-settings__identity {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		min-width: 0;
+	}
+
+	.de-settings__title {
+		margin: 0;
+		padding: 0;
+		font-size: 1.3rem;
+		font-weight: 600;
+		line-height: 1.3;
+		color: var( --de-settings-ink );
+	}
+
+	.de-settings__version {
+		font-size: 12px;
+		color: var( --de-settings-ink-faint );
+		font-variant-numeric: tabular-nums;
+	}
+
+	.de-settings__header-actions {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-left: auto;
+		flex: none;
+	}
+
+	.de-settings__unsaved {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		font-size: 13px;
+		color: var( --de-settings-amber );
+
+		&::before {
+			content: '';
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var( --de-settings-amber );
+		}
+	}
+
+	.de-settings__note {
+		font-size: 13px;
+		color: var( --de-settings-ink-faint );
+	}
+
+	.de-settings__body {
+		display: grid;
+		grid-template-columns: var( --de-settings-rail-width ) minmax( 0, 1fr );
+		flex: 1;
+	}
+
+	.de-settings__body.is-solo {
+		grid-template-columns: minmax( 0, 1fr );
+	}
+
+	.de-settings__rail {
+		background: var( --de-settings-surface );
+		border-right: 1px solid var( --de-settings-line );
+	}
+
+	.de-settings__rail-inner {
+		position: sticky;
+		top: calc( var( --de-settings-admin-bar ) + var( --de-settings-header-height ) );
+		display: flex;
+		flex-direction: column;
+		max-height: calc( 100vh - var( --de-settings-admin-bar ) - var( --de-settings-header-height ) );
+		padding-top: 8px;
+	}
+
+	.de-settings__rail-list {
+		overflow-y: auto;
+		padding-bottom: 12px;
+	}
+
+	.de-settings__rail-group {
+		padding: 14px 16px 5px;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #8c8f94;
+	}
+
+	.de-settings__rail-item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		width: 100%;
+		padding: 9px 14px 9px 13px;
+		border: 0;
+		border-left: 3px solid transparent;
+		background: none;
+		font-size: 13px;
+		line-height: 1.4;
+		text-align: left;
+		color: var( --de-settings-ink-soft );
+		cursor: pointer;
+
+		&:hover {
+			background: #f6f7f7;
+			color: var( --de-settings-blue );
+		}
+
+		&:focus-visible {
+			outline: 2px solid var( --de-settings-blue );
+			outline-offset: -2px;
+		}
+
+		&[aria-selected='true'] {
+			background: var( --de-settings-blue-wash );
+			border-left-color: var( --de-settings-blue );
+			color: var( --de-settings-blue-dark );
+			font-weight: 600;
+		}
+	}
+
+	.de-settings__rail-title {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.de-settings__rail-badge {
+		flex: none;
+		padding: 1px 7px;
+		border-radius: 9px;
+		background: var( --de-settings-ground );
+		font-size: 11px;
+		font-weight: 400;
+		color: var( --de-settings-ink-faint );
+		font-variant-numeric: tabular-nums;
+	}
+
+	.de-settings__rail-dirty {
+		flex: none;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var( --de-settings-amber );
+	}
+
+	.de-settings__rail-foot {
+		margin-top: auto;
+		padding: 12px 16px;
+		border-top: 1px solid var( --de-settings-line );
+	}
+
+	.de-settings__status {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 12px;
+		color: var( --de-settings-ink-faint );
+
+		.de-settings__status-led {
+			flex: none;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #8c8f94;
+		}
+
+		&.is-ok .de-settings__status-led {
+			background: var( --de-settings-green );
+			box-shadow: 0 0 0 3px rgba( 0, 115, 63, 0.14 );
+		}
+
+		&.is-warn .de-settings__status-led {
+			background: var( --de-settings-amber );
+			box-shadow: 0 0 0 3px rgba( 189, 134, 0, 0.16 );
+		}
+	}
+
+	.de-settings__pane {
+		min-width: 0;
+		padding: 24px 28px 48px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.de-settings__pane-head {
+		margin-bottom: 18px;
+
+		h2 {
+			margin: 0 0 4px;
+			padding: 0;
+			font-size: 1.05rem;
+			font-weight: 600;
+			color: var( --de-settings-ink );
+		}
+
+		p {
+			margin: 0;
+			max-width: 78ch;
+			font-size: 13px;
+			color: var( --de-settings-ink-faint );
+		}
+	}
+
+	.de-settings__card {
+		max-width: 1080px;
+		padding: 20px 22px;
+		background: var( --de-settings-surface );
+		border: 1px solid var( --de-settings-line );
+		border-radius: 4px;
+
+		& + & {
+			margin-top: 16px;
+		}
+	}
+
+	.de-settings__fields {
+		display: grid;
+		gap: 20px;
+	}
+
+	.de-settings__field {
+		max-width: 640px;
+
+		.components-base-control,
+		.components-base-control__field,
+		.components-number-control {
+			width: 100%;
+			margin-bottom: 0;
+
+			.components-flex {
+				width: 100%;
+			}
+		}
+
+		label,
+		.components-base-control__label {
+			font-weight: 600;
+		}
+
+		input[type='email'],
+		input[type='number'],
+		input[type='password'],
+		input[type='search'],
+		input[type='tel'],
+		input[type='text'],
+		input[type='url'],
+		textarea {
+			width: 100%;
+		}
+
+		input:disabled,
+		textarea:disabled {
+			background: #f6f7f7;
+			border-color: #dcdcde;
+			color: #a7aaad;
+		}
+
+		.components-input-control__prefix,
+		.components-input-control__suffix {
+			padding: 0 12px;
+			background: #f0f0f1;
+			margin: 0;
+		}
+	}
+
+	.components-placeholder {
+		background: var( --de-settings-surface );
+		border: 1px solid var( --de-settings-line );
+		box-shadow: none;
+
+		.components-placeholder__fieldset {
+			justify-content: center;
+		}
+	}
+
+	.components-notice-list {
+		z-index: 20;
+	}
+
+	@media screen and ( max-width: 1100px ) {
+		.de-settings__body {
+			grid-template-columns: minmax( 0, 1fr );
+		}
+
+		.de-settings__rail {
+			border-right: 0;
+			border-bottom: 1px solid var( --de-settings-line );
+		}
+
+		.de-settings__rail-inner {
+			position: static;
+			max-height: none;
+			padding-top: 0;
+		}
+
+		.de-settings__rail-list {
+			display: flex;
+			overflow-x: auto;
+			padding-bottom: 0;
+		}
+
+		.de-settings__rail-group {
+			display: none;
+		}
+
+		.de-settings__rail-item {
+			width: auto;
+			white-space: nowrap;
+			border-left: 0;
+			border-bottom: 3px solid transparent;
+
+			&[aria-selected='true'] {
+				border-left-color: transparent;
+				border-bottom-color: var( --de-settings-blue );
+			}
+		}
+
+		.de-settings__rail-foot {
+			margin-top: 0;
+			border-top: 1px solid var( --de-settings-line );
+		}
+
+		.de-settings__pane {
+			padding: 20px 16px 40px;
+		}
+	}
+
+	@media screen and ( max-width: 782px ) {
+		--de-settings-admin-bar: 46px;
+
+		.de-settings__header {
+			flex-wrap: wrap;
+			gap: 8px 12px;
+		}
+
+		.de-settings__header-actions {
+			margin-left: 0;
+			width: 100%;
+		}
+	}
+}

@@ -36,7 +36,7 @@ import useActiveSection from './useActiveSection'
  * reachable from an actions section through the count, which opens the first section
  * holding one.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {Object}    props
  * @param  {string}    props.title         Page title.
  * @param  {string}    [props.appVersion]  Optional version shown beside the title.

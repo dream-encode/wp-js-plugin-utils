@@ -25,7 +25,7 @@ import {
  * order - an object rebuilt through a spread is the ordinary case - and a plain
  * `JSON.stringify` comparison reports that as an edit.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {*}  value  Value to serialize.
  * @return {string}    Stable serialization of the value.
  */

@@ -6,7 +6,7 @@ import { __, sprintf } from '@wordpress/i18n'
  * Debug is called out in amber because it is the level that costs something to leave
  * switched on, and a settings page is usually the only place that gets noticed.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {string}  level         Configured log level.
  * @param  {string}  [textDomain]  Text domain for translated UI strings.
  * @return {Object}                Status readout, as `{ tone, text }`.

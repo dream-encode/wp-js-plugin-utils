@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from '@wordpress/element'
 /**
  * Read the section key carried in the URL hash.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {Array}  keys  Known section keys.
  * @return {string|null}  Matching section key, or null when the hash names nothing known.
  */
@@ -22,7 +22,7 @@ const readSectionFromHash = ( keys ) => {
  * the browser Back button still leaves the settings page instead of walking back
  * through the sections that were opened.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {Array}  sections  Section definitions.
  * @return {Array}            The active section key and a setter for it.
  */

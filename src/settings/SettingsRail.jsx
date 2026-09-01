@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n'
  * between them, so the rail costs a single tab stop no matter how many sections a
  * plugin registers.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.0
  * @param  {Object}    props
  * @param  {Array}     props.sections       Section definitions.
  * @param  {string}    props.activeKey      Key of the open section.

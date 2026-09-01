@@ -1,12 +1,6 @@
+import { Button } from '@wordpress/components'
+import { useState } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
-
-import {
-	Button
-} from '@wordpress/components'
-
-import {
-	useState
-} from '@wordpress/element'
 
 /**
  * "Dismiss All" button used inside the notifications drawer.

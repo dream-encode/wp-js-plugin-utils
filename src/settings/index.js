@@ -1,2 +1,5 @@
 export { default as createUseSettings } from './createUseSettings'
 export { default as AdminSettingsPage } from './AdminSettingsPage'
+export { default as RailSettingsPage } from './RailSettingsPage'
+export { default as SettingsRail } from './SettingsRail'
+export { default as useActiveSection } from './useActiveSection'

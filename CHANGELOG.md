@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.6.1] - 2026-09-01
 * ENH: Settings - The rail stylesheet now carries the layout for an actions section: `de-settings__action` rows with a description on the left and the button on the right, sized and separated the same way in every plugin that has one. Several plugins had each rolled their own copy of this nested inside the stacked layout, where it no longer matched anything.
 
 ## [0.6.0] - 2026-09-01

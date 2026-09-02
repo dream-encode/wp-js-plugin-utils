@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.6.3] - 2026-09-02
+* BUG: Settings - A link to a settings section that is gated behind another setting always landed on the first section instead. `useActiveSection` read the URL hash once, as the page mounted, which is before `/wp/v2/settings` has answered and therefore before any conditional section exists to match against, so the requested key looked unknown and was discarded. The requested key is now held and adopted the moment its section appears. It is dropped as soon as the reader picks a section themselves, so a section arriving late can never pull them away from what they are already reading.
+
 ## [0.6.2] - 2026-09-01
 * ENH: Settings - The rail page now says what it is doing while settings load. `/wp/v2/settings` returns every registered option on the site, so on a large install that request can take several seconds, and until now the pane rendered an empty `Placeholder` holding nothing but a spinner, which reads as a broken page rather than a loading one. The pane now shows a spinner beside "Loading settings…" instead.
 * TWK: Settings - The section rail now sits 1rem in from the left edge of the screen rather than flush against the admin menu.

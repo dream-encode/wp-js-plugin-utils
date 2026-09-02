@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from '@wordpress/el
 /**
  * Read the raw section key carried in the URL hash.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.6.3
  * @return {string}  Hash without its leading `#`, or an empty string.
  */
 const readHash = () => {

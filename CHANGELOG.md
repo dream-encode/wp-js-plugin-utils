@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.8.0] - 2026-09-11
+* FEA: Edit Product - Add `@dream-encode/wp-js-plugin-utils/edit-product`, wrappers around the registry that `max-marine-edit-product-shared-state` publishes on `window.maxMarineEditProduct`. Exports `registerField`, `registerAction`, `registerRequirement`, `registerOnReady`, `getRegistry` and `onEditProductEvent`, plus the lifecycle event names and context constants, so no consuming plugin hand-copies an event string. `MMEPSSStockQuantityChanged` had already been declared by hand in two plugins at once.
+* TSK: Edit Product - `registerOnReady()` registers fields before actions and requirements, since both refer to fields by key and the registry checks that the key resolves.
+
 ## [0.6.3] - 2026-09-02
 * BUG: Settings - A link to a settings section that is gated behind another setting always landed on the first section instead. `useActiveSection` read the URL hash once, as the page mounted, which is before `/wp/v2/settings` has answered and therefore before any conditional section exists to match against, so the requested key looked unknown and was discarded. The requested key is now held and adopted the moment its section appears. It is dropped as soon as the reader picks a section themselves, so a section arriving late can never pull them away from what they are already reading.
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.8.0] - 2026-09-11
 * FEA: Edit Product - Add `@dream-encode/wp-js-plugin-utils/edit-product`, wrappers around the registry that `max-marine-edit-product-shared-state` publishes on `window.maxMarineEditProduct`. Exports `registerField`, `registerAction`, `registerRequirement`, `registerOnReady`, `getRegistry` and `onEditProductEvent`, plus the lifecycle event names and context constants, so no consuming plugin hand-copies an event string. `MMEPSSStockQuantityChanged` had already been declared by hand in two plugins at once.
 * TSK: Edit Product - `registerOnReady()` registers fields before actions and requirements, since both refer to fields by key and the registry checks that the key resolves.
 

@@ -1,6 +1,6 @@
 {
   "name": "@dream-encode/wp-js-plugin-utils",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Common JS functionality used by custom WP plugins.",
   "keywords": [
     "wordpress",
@@ -27,6 +27,7 @@
     "./settings/styles": "./dist/settings/styles/_settings-page.scss",
     "./settings/styles/rail": "./dist/settings/styles/_settings-rail.scss",
     "./data-migrations": "./dist/data-migrations/index.js",
+    "./edit-product": "./dist/edit-product/index.js",
     "./components": "./dist/components/index.js",
     "./components/notifications-drawer/styles": "./dist/components/NotificationsDrawer/styles/_notifications-drawer.scss",
     "./components/process/styles": "./dist/components/Process/styles/_process.scss",

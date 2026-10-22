@@ -10,7 +10,7 @@ const KNOWN_KINDS = [ DEBUG_KIND_STORE, DEBUG_KIND_FETCH, DEBUG_KIND_EVENT ]
 /**
  * Whether a value holds something: not empty, null, false, or an empty array or object.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*} value Value.
  * @return {boolean}
  */
@@ -29,7 +29,7 @@ const hasValue = ( value ) => {
 /**
  * The kind a row is filtered and coloured by. Unknown kinds are notes.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry Entry.
  * @return {string}
  */
@@ -45,7 +45,7 @@ export const getEntryKind = ( entry ) => {
  * status fields usually record a failure. Any entry can also say so itself with
  * `level: 'error'`.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry Entry.
  * @return {boolean}
  */
@@ -76,7 +76,7 @@ export const isFailureEntry = ( entry ) => {
 /**
  * Shorten a REST path with the aliases the overlay was given.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string} path    Path.
  * @param  {Object} aliases Map of namespace to short label.
  * @return {string}
@@ -96,7 +96,7 @@ export const shortenPath = ( path, aliases = {} ) => {
 /**
  * Summary of a store entry's changes for its row.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object[]} changes Changes.
  * @return {string}
  */
@@ -114,7 +114,7 @@ const summarizeChanges = ( changes = [] ) => {
 /**
  * Status text for a request.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry Request entry.
  * @return {string}
  */
@@ -133,7 +133,7 @@ export const getRequestStatus = ( entry ) => {
 /**
  * Title, subtitle and right-hand text of a row.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry   Entry.
  * @param  {Object} aliases Path aliases.
  * @return {Object} `{ title, subtitle, aside, asideTone }`.
@@ -174,7 +174,7 @@ export const describeEntry = ( entry, aliases ) => {
 /**
  * Text searched by the filter box.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry   Entry.
  * @param  {Object} aliases Path aliases.
  * @return {string}

@@ -20,7 +20,7 @@ const EMPTY_SNAPSHOT = Object.freeze( {
 /**
  * Build a new, inactive log.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Object}
  */
 const createLog = () => {
@@ -46,7 +46,7 @@ const createLog = () => {
  * Returns null outside a browser, and null if the global has been claimed by something
  * that is not this log.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Object|null}
  */
 export const getDebugLog = () => {
@@ -70,7 +70,7 @@ export const getDebugLog = () => {
 /**
  * Whether the page URL asks for debug output.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string} [param] Query parameter to read. Default `debug`.
  * @return {boolean}
  */
@@ -90,7 +90,7 @@ export const isDebugRequested = ( param = DEBUG_QUERY_PARAM ) => {
  * active for the page, so a second plugin calling this with `allowed` false does not turn
  * it off for the first.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}  [options]         Options.
  * @param  {boolean} [options.allowed] Whether the current user may see debug output. Default true.
  * @param  {string}  [options.param]   Query parameter to read. Default `debug`.
@@ -113,7 +113,7 @@ export const activateDebug = ( { allowed = true, param = DEBUG_QUERY_PARAM } = {
 /**
  * Whether the log is recording for this page.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {boolean}
  */
 export const isDebugActive = () => {
@@ -134,7 +134,7 @@ export const isDebugActive = () => {
  * in the middle of another component's render, and folds a burst of dispatches into one
  * re-render of the overlay.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} log The log.
  * @return {void}
  */
@@ -164,7 +164,7 @@ const notify = ( log ) => {
  * Every entry gets an `id`, a wall clock `time` and `at`, the milliseconds since the page
  * started loading, which is what the request waterfall is drawn against.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} entry      Entry fields.
  * @param  {string} entry.kind `store`, `fetch`, `event` or any custom kind.
  * @return {number|null} The entry id, or null when nothing was recorded.
@@ -197,7 +197,7 @@ export const logDebugEntry = ( entry ) => {
  *
  * Used to settle a request that was logged when it started.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {number|null} id     Entry id.
  * @param  {Object}      fields Fields to merge.
  * @return {boolean} Whether an entry was updated.
@@ -234,7 +234,7 @@ export const updateDebugEntry = ( id, fields ) => {
 /**
  * Record the latest state of a data store, for the State tab.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string} storeName Store name.
  * @param  {*}      state     Current state.
  * @return {void}
@@ -257,7 +257,7 @@ export const setDebugStoreState = ( storeName, state ) => {
 /**
  * Empty the log. Store snapshots are kept, since they describe the page as it is now.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {void}
  */
 export const clearDebugLog = () => {
@@ -275,7 +275,7 @@ export const clearDebugLog = () => {
 /**
  * Stop or resume recording.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {boolean} paused Whether to pause.
  * @return {void}
  */
@@ -294,7 +294,7 @@ export const setDebugPaused = ( paused ) => {
 /**
  * Subscribe to changes. Shaped for `useSyncExternalStore`.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Function} listener Called after changes.
  * @return {Function} Unsubscribe.
  */
@@ -318,7 +318,7 @@ export const subscribeDebugLog = ( listener ) => {
  * The same object is returned until something changes, as `useSyncExternalStore`
  * requires.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Object}
  */
 export const getDebugLogSnapshot = () => {

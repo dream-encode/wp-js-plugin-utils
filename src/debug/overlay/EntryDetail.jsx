@@ -7,7 +7,7 @@ import { getEntryKind, getRequestStatus } from './entries'
 /**
  * Store entry detail: the changed paths, then the action.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} props       Props.
  * @param  {Object} props.entry Entry.
  * @return {JSX.Element}
@@ -43,7 +43,7 @@ const StoreDetail = ( { entry } ) => {
 /**
  * Request entry detail.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} props       Props.
  * @param  {Object} props.entry Entry.
  * @return {JSX.Element}
@@ -76,7 +76,7 @@ const FetchDetail = ( { entry } ) => {
 /**
  * Event entry detail.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} props       Props.
  * @param  {Object} props.entry Entry.
  * @return {JSX.Element}
@@ -105,7 +105,7 @@ const EventDetail = ( { entry } ) => {
 /**
  * Expanded view of one entry.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}  props           Props.
  * @param  {Object}  props.entry     Entry.
  * @param  {boolean} [props.request] Whether it sits in the Requests tab.

@@ -1,7 +1,7 @@
 /**
  * Global the shared debug log lives on.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @type {string}
  */
 export const DEBUG_NAMESPACE = 'dreamEncodeDebug'
@@ -9,7 +9,7 @@ export const DEBUG_NAMESPACE = 'dreamEncodeDebug'
 /**
  * Shape version of the shared log. A log of another version is left alone.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @type {number}
  */
 export const DEBUG_LOG_VERSION = 1
@@ -17,7 +17,7 @@ export const DEBUG_LOG_VERSION = 1
 /**
  * Query parameter that turns debug output on.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @type {string}
  */
 export const DEBUG_QUERY_PARAM = 'debug'
@@ -25,7 +25,7 @@ export const DEBUG_QUERY_PARAM = 'debug'
 /**
  * Most entries kept. Older entries are dropped first.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @type {number}
  */
 export const DEBUG_MAX_ENTRIES = 1000
@@ -33,7 +33,7 @@ export const DEBUG_MAX_ENTRIES = 1000
 /**
  * Entry kinds the overlay knows how to show. Any other kind is shown as a note.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @type {string}
  */
 export const DEBUG_KIND_STORE = 'store'

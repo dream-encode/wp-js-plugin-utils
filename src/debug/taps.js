@@ -20,7 +20,7 @@ import { getDebugLog, isDebugActive, logDebugEntry, setDebugStoreState, updateDe
  * change state and did not is often the bug being looked for. Redux's own `@@` actions
  * are skipped.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string}   storeName Store name shown in the log.
  * @param  {Function} reducer   Reducer to wrap.
  * @return {Function} Reducer.
@@ -59,7 +59,7 @@ export const withDebugLog = ( storeName, reducer ) => {
  * shape, an async loader that calls an `api*` helper straight away. The function's
  * return value is passed through untouched.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string}   label Name shown as the request initiator.
  * @param  {Function} fn    Function to run.
  * @return {*} Whatever `fn` returns.
@@ -83,7 +83,7 @@ export const withDebugInitiator = ( label, fn ) => {
 /**
  * The initiator label in force right now, if any.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {string|null}
  */
 const getCurrentInitiator = () => {
@@ -104,7 +104,7 @@ const getCurrentInitiator = () => {
  * request carries the status from the REST error. A caller that passes `parse: false`
  * gets the real status either way.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}   options apiFetch options.
  * @param  {Function} next    Next middleware.
  * @return {Promise<*>} Result of the next middleware.
@@ -161,7 +161,7 @@ export const debugApiFetchMiddleware = ( options, next ) => {
  * `apiFetch` is a WordPress global shared by every plugin, so the first plugin to call
  * this covers requests made by all of them. Does nothing unless the log is active.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {boolean} Whether the middleware is installed after the call.
  */
 export const installApiFetchDebug = () => {
@@ -183,7 +183,7 @@ export const installApiFetchDebug = () => {
 /**
  * Log an event emitted on a plugin's event bus.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {string} name                Event name.
  * @param  {*}      [payload]           Payload.
  * @param  {Object} [meta]              Extra fields.

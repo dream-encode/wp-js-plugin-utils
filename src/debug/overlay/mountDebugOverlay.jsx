@@ -10,7 +10,7 @@ import DebugOverlay from './DebugOverlay'
  * UI is inside a `@wordpress/components` Modal should render `<DebugOverlay />` inside
  * the modal instead, or the overlay cannot take keyboard focus.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} [props] Props passed to `DebugOverlay`.
  * @return {Function|null} Unmounts the overlay, or null when debug is off.
  */

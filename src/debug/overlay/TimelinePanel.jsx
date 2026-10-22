@@ -19,7 +19,7 @@ const KIND_FILTERS = [
  * Only the first 300 matching rows are drawn, since a full log redrawn on every
  * keystroke in a form would slow the form down.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}   props                Props.
  * @param  {Object[]} props.entries        Entries, newest first.
  * @param  {Object}   props.layout         Overlay layout, holding the filters.

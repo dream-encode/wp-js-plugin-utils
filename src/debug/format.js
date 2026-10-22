@@ -11,7 +11,7 @@ const MAX_DIFF_PATHS = 30
 /**
  * Whether a value is a plain object worth descending into.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*} value Value.
  * @return {boolean}
  */
@@ -31,7 +31,7 @@ const isPlainObject = ( value ) => {
  * Plain objects are compared key by key down to `maxDepth`; anything else, arrays
  * included, is compared by identity, which is how a reducer signals a change.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*}      prev       Previous state.
  * @param  {*}      next       Next state.
  * @param  {number} [maxDepth] Levels to descend. Default 2.
@@ -70,7 +70,7 @@ export const getChangedPaths = ( prev, next, maxDepth = 2 ) => {
 /**
  * One-line summary of a value, for diffs and row subtitles.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*}      value       Value.
  * @param  {number} [maxLength] Longest string shown before it is cut. Default 60.
  * @return {string}
@@ -121,7 +121,7 @@ export const formatInline = ( value, maxLength = 60 ) => {
  * Handles circular references, functions, errors, DOM nodes and `Response` objects, none
  * of which survive `JSON.stringify` on their own.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*}      value                Value.
  * @param  {Object} [limits]             Limits.
  * @param  {number} [limits.maxDepth]    Levels kept. Default 5.
@@ -218,7 +218,7 @@ export const toSafeData = ( value, { maxDepth = 5, maxItems = 25, maxString = 50
 /**
  * Pretty-printed preview of a value, cut to a fixed size.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {*}      value    Value.
  * @param  {Object} [limits] Same limits as `toSafeData`.
  * @return {string}
@@ -236,7 +236,7 @@ export const formatPreview = ( value, limits = {} ) => {
 /**
  * Wall clock time with milliseconds, `14:02:13.671`.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {number} time Milliseconds since the epoch.
  * @return {string}
  */
@@ -250,7 +250,7 @@ export const formatClock = ( time ) => {
 /**
  * Duration in milliseconds, with a thousands separator.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {number} ms Milliseconds.
  * @return {string}
  */
@@ -261,7 +261,7 @@ export const formatDuration = ( ms ) => {
 /**
  * The whole log as JSON text, for pasting into a bug report.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object[]} entries Entries, newest first.
  * @return {string}
  */

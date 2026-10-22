@@ -7,7 +7,7 @@ import { formatPreview } from '../format'
  *
  * A store appears once it has handled an action since debug output was switched on.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} props        Props.
  * @param  {Object} props.stores Store states keyed by store name.
  * @return {JSX.Element}

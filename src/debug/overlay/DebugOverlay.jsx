@@ -28,7 +28,7 @@ const MIN_VISIBLE = 160
  * Two plugins on the same page may both render the overlay. The log is shared, so the
  * first one to mount shows everything and the second renders nothing.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {symbol} owner Token for this overlay.
  * @return {boolean} Whether this overlay holds the slot.
  */
@@ -49,7 +49,7 @@ const claimOverlay = ( owner ) => {
 /**
  * Icon used by the title bar buttons.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} props      Props.
  * @param  {string} props.name Icon name.
  * @return {JSX.Element}
@@ -83,7 +83,7 @@ const Icon = ( { name } ) => {
  * from the keyboard. Escape pressed inside the overlay is stopped here so it never
  * closes the modal.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}   props                Props.
  * @param  {string}   [props.title]        Title bar text. Default `Debug`.
  * @param  {Object[]} [props.panels]       Extra tabs: `{ key, title, render }`. `render`

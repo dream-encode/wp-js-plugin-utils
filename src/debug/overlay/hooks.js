@@ -22,7 +22,7 @@ const DEFAULT_LAYOUT = {
 /**
  * The current debug log snapshot, re-rendering when it changes.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Object} `{ entries, stores, paused }`.
  */
 export const useDebugSnapshot = () => {
@@ -33,7 +33,7 @@ export const useDebugSnapshot = () => {
  * Read the remembered layout. Storage can be missing or refuse access, in which case
  * the defaults are used.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Object}
  */
 const readLayout = () => {
@@ -56,7 +56,7 @@ const readLayout = () => {
 /**
  * Remember the layout. A browser that refuses storage keeps it for this page only.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object} layout Layout.
  * @return {boolean} Whether it was stored.
  */
@@ -73,7 +73,7 @@ const persistLayout = ( layout ) => {
 /**
  * Overlay layout and filters, remembered per browser.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {Array} `[ layout, updateLayout ]`. `updateLayout` merges the fields it is given.
  */
 export const useOverlayLayout = () => {

@@ -12,7 +12,7 @@ import { getRequestStatus, shortenPath } from './entries'
  * requests that ran in parallel overlap and a request that waited on another starts
  * after it ends.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @param  {Object}   props            Props.
  * @param  {Object[]} props.entries    Entries, newest first.
  * @param  {number}   props.openId     Expanded entry id.

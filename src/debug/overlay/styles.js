@@ -136,7 +136,7 @@ const CSS = `
 /**
  * Add the overlay stylesheet to the document once.
  *
- * @since  [NEXT_VERSION]
+ * @since  0.9.0
  * @return {void}
  */
 export const injectOverlayStyles = () => {

@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.9.0] - 2026-10-22
 * FEA: Debug - New `@dream-encode/wp-js-plugin-utils/debug`, a page-wide debug log on `window.dreamEncodeDebug` that every plugin on the page writes to. It is switched on by `debug=1` in the URL through `activateDebug()`, which also takes a server-side `allowed` flag. Taps: `withDebugLog()` wraps a `@wordpress/data` reducer and records each action with the state paths it changed; `installApiFetchDebug()` registers `apiFetch` middleware once per page and records each request when it starts and when it settles; `logDebugEvent()` records an event bus emit with its listener count; `withDebugInitiator()` labels the requests a function starts. Without the flag each tap costs one property read.
 * FEA: Debug - New `@dream-encode/wp-js-plugin-utils/debug/overlay` with `DebugOverlay` and `mountDebugOverlay`, a floating panel with Timeline, Requests and State tabs plus any tabs a plugin adds through `panels`. The timeline filters by kind, by failures and by text, and opens an entry to show its state diff, request or payload. The panel can be dragged, docked to the bottom, minimized to a pill that shows in-flight and failed counts, paused, cleared, and copied as JSON. Position, tab and filters are remembered per browser. Styles ship inside the module, so it needs no stylesheet import and loads nothing on pages without the flag.
 

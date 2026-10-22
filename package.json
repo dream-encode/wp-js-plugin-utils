@@ -28,6 +28,8 @@
     "./settings/styles/rail": "./dist/settings/styles/_settings-rail.scss",
     "./data-migrations": "./dist/data-migrations/index.js",
     "./edit-product": "./dist/edit-product/index.js",
+    "./debug": "./dist/debug/index.js",
+    "./debug/overlay": "./dist/debug/overlay/index.js",
     "./components": "./dist/components/index.js",
     "./components/notifications-drawer/styles": "./dist/components/NotificationsDrawer/styles/_notifications-drawer.scss",
     "./components/process/styles": "./dist/components/Process/styles/_process.scss",

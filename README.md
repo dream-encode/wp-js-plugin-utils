@@ -22,6 +22,8 @@ expected to provide their own versions.
 | `@dream-encode/wp-plugin-utils/settings`            | `createUseSettings`, `AdminSettingsPage`.              |
 | `@dream-encode/wp-plugin-utils/settings/styles`     | SCSS partial with the settings-page styles mixin.      |
 | `@dream-encode/wp-plugin-utils/data-migrations`     | Registry helpers for the Data Migrations plugin.       |
+| `@dream-encode/wp-js-plugin-utils/debug`            | Shared debug log and its taps (`?debug=1`).            |
+| `@dream-encode/wp-js-plugin-utils/debug/overlay`    | `DebugOverlay`, `mountDebugOverlay`. Load lazily.      |
 | `@dream-encode/wp-plugin-utils/components`          | Shared components (`Notices`).                         |
 | `@dream-encode/wp-plugin-utils/hooks`               | `useValueChangeEffect`, `useBlurableContent`, …        |
 | `@dream-encode/wp-plugin-utils/api`                 | `fetchGetOptions`, `fetchPostOptions`.                 |
@@ -107,3 +109,80 @@ domReady( () => {
 	registerResultsRenderer( 'my_migrator', MyResultsRenderer )
 } )
 ```
+
+## Debug overlay
+
+A floating panel that logs `@wordpress/data` actions, `apiFetch` requests and event bus
+emits as they happen. It shows only when the page URL has `debug=1` and the plugin allows
+the current user.
+
+The log lives on `window.dreamEncodeDebug` and is shared by every plugin on the page, so
+several plugins can feed one timeline and one overlay shows all of it. Every tap checks
+whether the log is active each time it runs, so they can stay wired in permanently.
+
+**1. Gate it on the server.** Localize a capability check for the page:
+
+```php
+'DEBUG_ALLOWED' => current_user_can( 'manage_woocommerce' ),
+```
+
+**2. Activate it and register the request middleware,** first thing in the entry script:
+
+```js
+import { activateDebug, installApiFetchDebug } from '@dream-encode/wp-js-plugin-utils/debug'
+
+const DEBUG_ENABLED = activateDebug( { allowed: true === MY_PLUGIN.DEBUG_ALLOWED } )
+
+if ( DEBUG_ENABLED ) {
+	installApiFetchDebug()
+}
+```
+
+**3. Add the taps.**
+
+```js
+import { logDebugEvent, withDebugInitiator, withDebugLog } from '@dream-encode/wp-js-plugin-utils/debug'
+
+export const store = createReduxStore( 'my-store', {
+	reducer: withDebugLog( 'my-store', reducer ),
+	actions,
+	selectors
+} )
+
+emit: ( event, payload ) => {
+	logDebugEvent( event, payload, { listeners: emitter.listenerCount( event ), source: 'my-plugin' } )
+
+	return emitter.emit( event, payload )
+}
+
+const terms = await withDebugInitiator( 'ProductTerms', () => apiGetTerms() )
+```
+
+`withDebugInitiator` labels requests started before the function first awaits, which covers
+an async loader that calls an `api*` helper straight away.
+
+**4. Render the overlay,** loaded lazily so pages without the flag never download it:
+
+```jsx
+import { Suspense, lazy } from '@wordpress/element'
+
+const DebugOverlay = DEBUG_ENABLED ? lazy( () => import( '@dream-encode/wp-js-plugin-utils/debug/overlay' ) ) : null
+
+{ DebugOverlay && (
+	<Suspense fallback={ null }>
+		<DebugOverlay
+			title="My Plugin Debug"
+			pathAliases={ { 'my-plugin/v1': 'mp/v1' } }
+			panels={ [ { key: 'mine', title: 'Mine', render: () => <MyPanel /> } ] }
+		/>
+	</Suspense>
+) }
+```
+
+Render it inside the page's `Modal` when there is one: the modal keeps keyboard focus inside
+itself and hides everything else from assistive technology. A page with no React tree of its
+own can call `mountDebugOverlay( props )` instead.
+
+Built-in tabs are Timeline, Requests and State. `panels` adds tabs after them; a panel can
+use the overlay classes `de-debug-sec`, `de-debug-h`, `de-debug-kv`, `de-debug-list` and
+`de-debug-badge` (`is-ok`, `is-pending`, `is-err`) to match.

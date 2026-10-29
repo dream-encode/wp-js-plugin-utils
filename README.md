@@ -24,6 +24,7 @@ expected to provide their own versions.
 | `@dream-encode/wp-plugin-utils/data-migrations`     | Registry helpers for the Data Migrations plugin.       |
 | `@dream-encode/wp-js-plugin-utils/debug`            | Shared debug log and its taps (`?debug=1`).            |
 | `@dream-encode/wp-js-plugin-utils/debug/overlay`    | `DebugOverlay`, `mountDebugOverlay`. Load lazily.      |
+| `@dream-encode/wp-js-plugin-utils/process-status`   | Background process status widget and polling hook.     |
 | `@dream-encode/wp-plugin-utils/components`          | Shared components (`Notices`).                         |
 | `@dream-encode/wp-plugin-utils/hooks`               | `useValueChangeEffect`, `useBlurableContent`, …        |
 | `@dream-encode/wp-plugin-utils/api`                 | `fetchGetOptions`, `fetchPostOptions`.                 |
@@ -186,3 +187,40 @@ own can call `mountDebugOverlay( props )` instead.
 Built-in tabs are Timeline, Requests and State. `panels` adds tabs after them; a panel can
 use the overlay classes `de-debug-sec`, `de-debug-h`, `de-debug-kv`, `de-debug-list` and
 `de-debug-badge` (`is-ok`, `is-pending`, `is-err`) to match.
+
+## Process status
+
+Shows the Max Marine Background Processor processes a page starts, on that page. It reads
+`max-marine/v1/background-processor/background-processes/status`, so it needs the
+Background Processor plugin and a user with `manage_options`.
+
+```jsx
+import { getProcessStatusReadout, ProcessStatus, useProcessStatus } from '@dream-encode/wp-js-plugin-utils/process-status'
+
+const PROCESSORS = [ 'elastic_search_product_index_processor' ]
+
+const productIndex = useProcessStatus( { processors: PROCESSORS } )
+
+<Button disabled={ productIndex.isActive } onClick={ () => bulkIndex().then( productIndex.refresh ) }>
+
+<ProcessStatus
+	processors={ PROCESSORS }
+	title="Product index processes"
+	unit="products"
+	textDomain={ TEXT_DOMAIN }
+/>
+
+<RailSettingsPage
+	status={ [ getLogLevelStatus( logLevel ), getProcessStatusReadout( productIndex.activeProcesses ) ] }
+/>
+```
+
+`variant="inline"` shows one process under the button that starts it. `history` sets how
+many finished processes to keep for each processor (default 1). `getLabel` and `getTags`
+take a process and return a label or a list of tags, and `unit` can be a function of the
+process. `onComplete` is called with a process when one finishes while the page is open.
+
+Every hook and widget asking for the same processors shares one poller. Call `refresh()`
+after starting a process, because the Background Processor schedules processes through an
+action that returns no process ID. A page rendered in PHP uses the Background Processor
+helper `max_marine_background_processor_render_process_status()` instead.

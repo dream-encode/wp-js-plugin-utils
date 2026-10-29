@@ -5,6 +5,7 @@ import { __, _n, sprintf } from '@wordpress/i18n'
 import Notices from '../components/Notices'
 
 import SettingsRail from './SettingsRail'
+import StatusReadouts from './StatusReadouts'
 import useActiveSection from './useActiveSection'
 
 /**
@@ -37,12 +38,13 @@ import useActiveSection from './useActiveSection'
  * holding one.
  *
  * @since  0.6.0
+ * @since  [NEXT_VERSION] `status` also takes a list of readouts.
  * @param  {Object}    props
  * @param  {string}    props.title         Page title.
  * @param  {string}    [props.appVersion]  Optional version shown beside the title.
  * @param  {Object}    props.settings      Object returned from a `useSettings` hook.
  * @param  {Array}     props.sections      Section definitions.
- * @param  {Object}    [props.status]      Optional readout for the rail foot, as `{ tone, text }`.
+ * @param  {Object|Array} [props.status]   Optional readout for the rail foot, as `{ tone, text }`, or a list of them.
  * @param  {Function}  [props.onSave]      Optional override for the save handler.
  * @param  {string}    [props.textDomain]  Text domain for translated UI strings.
  * @return {JSX.Element}
@@ -136,11 +138,8 @@ const RailSettingsPage = ( {
 					) }
 				</div>
 
-				{ ! showRail && !! status?.text && (
-					<span className={ `de-settings__status is-${ status.tone || 'neutral' }` }>
-						<span className="de-settings__status-led" aria-hidden="true" />
-						{ status.text }
-					</span>
+				{ ! showRail && (
+					<StatusReadouts status={ status } />
 				) }
 
 				<div className="de-settings__header-actions">

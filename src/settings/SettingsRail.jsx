@@ -1,6 +1,8 @@
 import { Fragment, useRef } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
 
+import StatusReadouts, { normalizeStatusReadouts } from './StatusReadouts'
+
 /**
  * Vertical section navigation for the settings shell.
  *
@@ -9,12 +11,13 @@ import { __ } from '@wordpress/i18n'
  * plugin registers.
  *
  * @since  0.6.0
+ * @since  [NEXT_VERSION] `status` also takes a list of readouts.
  * @param  {Object}    props
  * @param  {Array}     props.sections       Section definitions.
  * @param  {string}    props.activeKey      Key of the open section.
  * @param  {Function}  props.onSelect       Called with a section key when one is chosen.
  * @param  {Array}     [props.dirtySections] Keys of sections holding an unsaved edit.
- * @param  {Object}    [props.status]       Optional readout for the rail foot, as `{ tone, text }`.
+ * @param  {Object|Array} [props.status]    Optional readout for the rail foot, as `{ tone, text }`, or a list of them.
  * @param  {string}    [props.textDomain]   Text domain for translated UI strings.
  * @return {JSX.Element}
  */
@@ -125,12 +128,9 @@ const SettingsRail = ( {
 					} ) }
 				</div>
 
-				{ !! status?.text && (
+				{ normalizeStatusReadouts( status ).length > 0 && (
 					<div className="de-settings__rail-foot">
-						<span className={ `de-settings__status is-${ status.tone || 'neutral' }` }>
-							<span className="de-settings__status-led" aria-hidden="true" />
-							{ status.text }
-						</span>
+						<StatusReadouts status={ status } />
 					</div>
 				) }
 			</div>

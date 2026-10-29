@@ -1,6 +1,6 @@
 # Changelog
 
-## [NEXT_VERSION] - [UNRELEASED]
+## [0.10.0] - 2026-10-29
 * FEA: Process Status - New `@dream-encode/wp-js-plugin-utils/process-status`, a widget that shows the Max Marine Background Processor processes a page starts on that page. `ProcessStatus` renders as a panel, with a header, the unfinished processes and the most recent finished ones, or inline under the button that starts a process. Each process shows its status, a progress bar, rows done of total in a unit the page names, start and elapsed time, skipped and failed counts, the latest error of a failed run, and its prerequisite processes nested under it. Cancel, with an inline confirmation, Retry and Details act in place. Styles ship inside the module.
 * FEA: Process Status - `useProcessStatus()` returns the same processes with `isActive`, `refresh`, `cancel`, `retry` and an `onComplete` callback, so a page can disable its start button while a run is unfinished and reload a list when one finishes. Every hook and widget asking for the same processors shares one poller. It polls every 5 seconds while a process is pending, queued or processing, waits until just after the next scheduled process is due when only scheduled ones remain, stops when nothing is unfinished, and pauses in a hidden tab.
 * FEA: Process Status - `getProcessStatusReadout()` describes unfinished processes as a rail foot readout, such as "Regenerate Media · 15%", and `mountProcessStatus()` renders the widget into an element on a page with no React tree of its own.
